@@ -28,3 +28,9 @@ jobs:
         run: ./gradlew applyPatches
       - name: Build
         run: ./gradlew build
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        if: success()
+        with:
+          name: Folia
+          path: build/libs/
